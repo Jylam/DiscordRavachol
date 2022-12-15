@@ -4,7 +4,6 @@ import urllib, json
 import urllib.request
 import re
 import random
-import
 
 GUILD = 'Ostinautoscope'
 client = None
