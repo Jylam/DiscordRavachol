@@ -13,7 +13,6 @@ import random
 GUILD = 'Ostinautoscope'
 
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
-OPENWMAP_TOKEN = os.environ.get('OPENWMAP_TOKEN')
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
@@ -35,7 +34,7 @@ async def on_message(message):
         if message.author == client.user:
             return
 
-        print("Message from", message.author,":", message.content))
+        print("Message from", message.author,":", message.content)
 
         if findWholeWord('darmanin')(message.content) != None:
             response = "Le sale violeur ?"
@@ -58,25 +57,6 @@ async def on_message(message):
             if(r == 0):
                 response = random.choice(macron_list)
                 await message.channel.send(response)
-        if message.content == '!pontivy':
-            print("Pontivy")
-            w_str = "http://api.openweathermap.org/data/2.5/weather?appid="+OPENWMAP_TOKEN+"&q=pontivy"
-            print("Requesting", w_str)
-            response = urllib.request.urlopen(w_str)
-
-            data = json.loads(response.read().decode('utf-8'))
-            if data["cod"] != "404":
-                d = data["main"]
-                print(d)
-                temp = d["temp"] - 273.15
-                humi = d["humidity"]
-                tempr = d["feels_like"] - 273.15
-                macron_list = ["MACRON DEMISSION !", "♬ ON EST LÀÀÀ ON EST LÀÀÀ MÊME SI MACRON NE VEUT PAS NOUS ON EST LÀÀÀ ♬"]
-                response = "Meteo de Pontivy: %.1f°C, humidité %.1f%%, température ressentie %.1f°C.\nLe Napoleonoscope n'est pour le moment toujours pas confirmé."%(temp, humi, tempr)
-                await message.channel.send(response)
-            else:
-                print("Error getting weather")
-
         elif message.content == 'Syndiquez vous':
             response = "Absolument mon bon Michel."
             await message.channel.send(response)
