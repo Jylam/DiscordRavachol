@@ -1,3 +1,8 @@
+# Copyright © 2021-2022  Jylam <github@frob.fr>
+# This work is free. You can redistribute it and/or modify it under the
+# terms of the Do What The Fuck You Want To Public License, Version 2,
+# as published by Sam Hocevar. See the COPYING file for more details.
+
 import os
 import discord
 import urllib, json
@@ -7,13 +12,10 @@ import random
 
 GUILD = 'Ostinautoscope'
 
-TOKEN = os.environ['RAVACHOL_TOKEN']
-OPENWMAP_TOKEN = os.environ['OPENWMAP_TOKEN']
-print("Running client...")
+TOKEN = os.environ.get('RAVACHOL_TOKEN')
+OPENWMAP_TOKEN = os.environ.get('OPENWMAP_TOKEN')
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-client.run(TOKEN)
-print("Done")
 
 def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
@@ -33,7 +35,7 @@ async def on_message(message):
         if message.author == client.user:
             return
 
-        print("Message from '%s' : '%s'",(message.author, message.content))
+        print("Message from", message.author,":", message.content))
 
         if findWholeWord('darmanin')(message.content) != None:
             response = "Le sale violeur ?"
@@ -58,7 +60,9 @@ async def on_message(message):
                 await message.channel.send(response)
         if message.content == '!pontivy':
             print("Pontivy")
-            response = urllib.request.urlopen("http://api.openweathermap.org/data/2.5/weather?appid="+OPENWMAP_TOKEN+"&q=pontivy")
+            w_str = "http://api.openweathermap.org/data/2.5/weather?appid="+OPENWMAP_TOKEN+"&q=pontivy"
+            print("Requesting", w_str)
+            response = urllib.request.urlopen(w_str)
 
             data = json.loads(response.read().decode('utf-8'))
             if data["cod"] != "404":
@@ -97,4 +101,7 @@ async def on_message(message):
         if findWholeWord('roussel')(message.content) != None:
             response = "🥩 🥓 🍖 🍷"
             await message.channel.send(response)
+print("Running client...")
+client.run(TOKEN)
+print("Done")
 
