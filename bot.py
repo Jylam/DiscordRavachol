@@ -6,7 +6,14 @@ import re
 import random
 
 GUILD = 'Ostinautoscope'
-client = None
+
+TOKEN = os.environ['RAVACHOL_TOKEN']
+OPENWMAP_TOKEN = os.environ['OPENWMAP_TOKEN']
+print("Running client...")
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
+client.run(TOKEN)
+print("Done")
 
 def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
@@ -91,18 +98,3 @@ async def on_message(message):
             response = "🥩 🥓 🍖 🍷"
             await message.channel.send(response)
 
-def main():
-    global client
-    global OPENWMAP_TOKEN
-    TOKEN = os.environ['RAVACHOL_TOKEN']
-    OPENWMAP_TOKEN = os.environ['OPENWMAP_TOKEN']
-    print("Running client...")
-    intents = discord.Intents.all()
-    client = discord.Client(intents=intents)
-    client.run(TOKEN)
-    print("Done")
-
-
-
-if __name__ == '__main__':
-    main()
