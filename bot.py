@@ -20,6 +20,7 @@ COMMAND_FILE="commands.json"
 try:
     with open(COMMAND_FILE, 'r') as f:
         data = json.load(f)
+        print("Loaded json")
 except:
     print("Can't open", COMMAND_FILE, ". Exiting.")
     sys.exit(1)
@@ -67,20 +68,18 @@ def find_and_run_command(input_str):
 
 @client.event
 async def on_ready():
-        for guild in client.guilds:
-            if guild.name == GUILD:
-                    break
-        print("Ready.")
+    for guild in client.guilds:
+        if guild.name == GUILD:
+                break
+    print("Ready.")
+
 @client.event
 async def on_message(message):
-        macron_list = ["MACRON DEMISSION !", "♬ ON EST LÀÀÀ ON EST LÀÀÀ MÊME SI MACRON NE VEUT PAS NOUS ON EST LÀÀÀ ♬", "Macron explosion !"]
-        gibouin_list = ["TA GUEUUULE CONNNAAAAARD", "Elle a son attestation madame Gibouin ?", "♬ Bon ben ça fera 135 euros ♬"]
+    if message.author == client.user:
+        return
 
-        if message.author == client.user:
-            return
-
-        print("Message from", message.author,":", message.content)
-        resp = find_and_run_command(message.content)
-        if resp != None:
-            await message.channel.send(resp)
+    print("Message from", message.author,":", message.content)
+    resp = find_and_run_command(message.content)
+    if resp != None:
+        await message.channel.send(resp)
 
