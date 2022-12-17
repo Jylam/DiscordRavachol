@@ -32,6 +32,24 @@ client.run(TOKEN)
 print("Done")
 
 
+@client.event
+async def on_ready():
+    for guild in client.guilds:
+        if guild.name == GUILD:
+                break
+    print("Ready.")
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    print("Message from", message.author,":", message.content)
+    resp = find_and_run_command(message.content)
+    if resp != None:
+        await message.channel.send(resp)
+
+
 
 def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
@@ -66,20 +84,4 @@ def find_and_run_command(input_str):
                     run_command(data[name][command])
 
 
-@client.event
-async def on_ready():
-    for guild in client.guilds:
-        if guild.name == GUILD:
-                break
-    print("Ready.")
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    print("Message from", message.author,":", message.content)
-    resp = find_and_run_command(message.content)
-    if resp != None:
-        await message.channel.send(resp)
 
