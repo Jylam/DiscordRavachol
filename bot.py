@@ -17,6 +17,33 @@ TOKEN = os.environ.get('RAVACHOL_TOKEN')
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
+@client.event
+async def on_ready():
+    print("Client ready")
+    for guild in client.guilds:
+        if guild.name == GUILD:
+                break
+    try:
+        with open(COMMAND_FILE, 'r') as f:
+            json_data = json.load(f)
+            print("Loaded json")
+    except:
+        print("Can't open", COMMAND_FILE, ". Exiting.")
+        sys.exit(1)
+
+    print("Ready.")
+
+@client.event
+async def on_message(message):
+    print("Message from", message.author,":", message.content)
+    if message.author == client.user:
+        return
+
+    resp = find_and_run_command(message.content)
+    if resp != None:
+        await message.channel.send(resp)
+
+
 
 print("Running client with token", TOKEN)
 client.run(TOKEN, reconnect=True)
@@ -61,32 +88,5 @@ def find_and_run_command(input_str):
 
 
 
-
-
-@client.event
-async def on_ready():
-    print("Client ready")
-    for guild in client.guilds:
-        if guild.name == GUILD:
-                break
-    try:
-        with open(COMMAND_FILE, 'r') as f:
-            json_data = json.load(f)
-            print("Loaded json")
-    except:
-        print("Can't open", COMMAND_FILE, ". Exiting.")
-        sys.exit(1)
-
-    print("Ready.")
-
-@client.event
-async def on_message(message):
-    print("Message from", message.author,":", message.content)
-    if message.author == client.user:
-        return
-
-    resp = find_and_run_command(message.content)
-    if resp != None:
-        await message.channel.send(resp)
 
 
