@@ -3,15 +3,15 @@
     "pontivy": {
       "random": 1,
       "responses": [
-          "Pontivy 1",
-          "Pontivy 2"
+          "Pontivy meilleure ville",
+          "Pontivy rpzt"
       ]
     },
     "meteo": {
       "random": "1",
       "responses": [
-          "Meteo 1",
-          "Meteo 2"
+          "Il fait froid",
+          "Il fait chaud"
       ]
     }
   },
