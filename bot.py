@@ -14,6 +14,8 @@ import random
 
 GUILD = 'Ostinautoscope'
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
+COMMAND_FILE="commands.json"
+json_data = None
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -49,8 +51,6 @@ print("Running client with token", TOKEN)
 client.run(TOKEN, reconnect=True)
 print("Done")
 
-COMMAND_FILE="commands.json"
-json_data = None
 
 
 
