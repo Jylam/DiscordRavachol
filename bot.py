@@ -59,6 +59,7 @@ intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
+    global json_data
     print("Client ready")
     for guild in client.guilds:
         if guild.name == GUILD:
