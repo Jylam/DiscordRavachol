@@ -17,14 +17,6 @@ GUILD = 'Ostinautoscope'
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
 COMMAND_FILE="commands.json"
 
-try:
-    with open(COMMAND_FILE, 'r') as f:
-        data = json.load(f)
-        print("Loaded json")
-except:
-    print("Can't open", COMMAND_FILE, ". Exiting.")
-    sys.exit(1)
-
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 print("Running client...")
@@ -37,6 +29,14 @@ async def on_ready():
     for guild in client.guilds:
         if guild.name == GUILD:
                 break
+    try:
+        with open(COMMAND_FILE, 'r') as f:
+            data = json.load(f)
+            print("Loaded json")
+    except:
+        print("Can't open", COMMAND_FILE, ". Exiting.")
+        sys.exit(1)
+
     print("Ready.")
 
 @client.event
