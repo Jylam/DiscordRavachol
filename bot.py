@@ -7,21 +7,23 @@ import os
 import sys
 import json
 import discord
-import urllib, json
+import urllib
 import urllib.request
 import re
 import random
 
-json_data = None
 GUILD = 'Ostinautoscope'
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
-COMMAND_FILE="commands.json"
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
+
 print("Running client with token", TOKEN)
 client.run(TOKEN)
 print("Done")
+
+COMMAND_FILE="commands.json"
+json_data = None
 
 
 @client.event
