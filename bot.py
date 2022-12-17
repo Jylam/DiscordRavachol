@@ -23,6 +23,7 @@ def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
 
 def run_command(input_dict):
+    print("Running command for", input_dict)
     if "random" in input_dict:
         random_value = int(input_dict["random"])
         if random_value > 0:
@@ -43,10 +44,12 @@ def findWholeWord(w):
 def find_and_run_command(input_str):
     for name in json_data:
         if name == "single":
+            print("single !")
             for command in json_data[name]:
                 if command == input_str:
                     run_command(json_data[name][command])
         if name == "match":
+            print("match !")
             for command in json_data[name]:
                 if findWholeWord(command)(input_str) != None:
                     run_command(json_data[name][command])
