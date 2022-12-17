@@ -4,20 +4,65 @@
 # as published by Sam Hocevar. See the COPYING file for more details.
 
 import os
+import sys
+import json
 import discord
 import urllib, json
 import urllib.request
 import re
 import random
 
+data = None
 GUILD = 'Ostinautoscope'
-
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
+COMMAND_FILE="commands.json"
+
+try:
+    with open(COMMAND_FILE, 'r') as f:
+        data = json.load(f)
+except:
+    print("Can't open", COMMAND_FILE, ". Exiting.")
+    sys.exit(1)
+
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
+print("Running client...")
+client.run(TOKEN)
+print("Done")
+
+
 
 def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
+
+def run_command(input_dict):
+    if "random" in input_dict:
+        random_value = int(input_dict["random"])
+        if random_value > 0:
+            to_print = random.randint(0, random_value-1)
+            if to_print != 0:
+                return None
+
+    if "responses" in input_dict:
+        length = len(input_dict["responses"])
+        offset = 0;
+        random_str = random.randint(0, length-1)
+        return input_dict["responses"][random_str]
+    return None
+
+def findWholeWord(w):
+    return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
+
+def find_and_run_command(input_str):
+    for name in data:
+        if name == "single":
+            for command in data[name]:
+                if command == input_str:
+                    run_command(data[name][command])
+        if name == "match":
+            for command in data[name]:
+                if findWholeWord(command)(input_str) != None:
+                    run_command(data[name][command])
 
 
 @client.event
@@ -35,53 +80,7 @@ async def on_message(message):
             return
 
         print("Message from", message.author,":", message.content)
-
-        if findWholeWord('darmanin')(message.content) != None:
-            response = "Le sale violeur ?"
-            await message.channel.send(response)
-        if findWholeWord('valls')(message.content) != None:
-            response = "Qui ?"
-            await message.channel.send(response)
-        if findWholeWord('blanquer')(message.content) != None:
-            response = "Le Beluga blanc ?"
-            await message.channel.send(response)
-        if findWholeWord('zemmour')(message.content) != None:
-            response = "Le candidat fasciste ?"
-            await message.channel.send(response)
-        if findWholeWord('Ciotti')(message.content) != None:
-            response = "Celui qui est chauve ?"
-            await message.channel.send(response)
-        if findWholeWord('macron')(message.content) != None:
-            r = random.randint(0, 3)
-            print("MACRON R : %d"%(r))
-            if(r == 0):
-                response = random.choice(macron_list)
-                await message.channel.send(response)
-        elif message.content == 'Syndiquez vous':
-            response = "Absolument mon bon Michel."
-            await message.channel.send(response)
-        elif message.content == '!sarouel':
-            response = "p'tit terr pour fêter ça ?"
-            await message.channel.send(response)
-        if findWholeWord('sarouel')(message.content) != None:
-            response = "@bubuchenbois ?"
-            await message.channel.send(response)
-        if findWholeWord('coupable')(message.content) != None:
-            response = "sauf Carlos Ghosn !"
-            await message.channel.send(response)
-        if findWholeWord('jambon')(message.content) != None or findWholeWord('fromage')(message.content) != None:
-            response = "des choses concrètes"
-            await message.channel.send(response)
-        if (findWholeWord('gibouin')(message.content) != None) or (message.content == '!mmegibouin'):
-            response = random.choice(gibouin_list)
-            await message.channel.send(response)
-        if findWholeWord('mediapart')(message.content) != None:
-            response = "edwy moustache"
-            await message.channel.send(response)
-        if findWholeWord('roussel')(message.content) != None:
-            response = "🥩 🥓 🍖 🍷"
-            await message.channel.send(response)
-print("Running client...")
-client.run(TOKEN)
-print("Done")
+        resp = find_and_run_command(message.content)
+        if resp != None:
+            await message.channel.send(resp)
 

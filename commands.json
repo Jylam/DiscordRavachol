@@ -1,0 +1,99 @@
+{
+  "single": {
+    "pontivy": {
+      "random": 1,
+      "responses": [
+          "Pontivy 1",
+          "Pontivy 2"
+      ]
+    },
+    "meteo": {
+      "random": "1",
+      "responses": [
+          "Meteo 1",
+          "Meteo 2"
+      ]
+    }
+  },
+  "match": {
+    "macron": {
+      "random": 3,
+      "responses": [
+        "MACRON DEMISSION !",
+        "♬ ON EST LÀÀÀ ON EST LÀÀÀ MÊME SI MACRON NE VEUT PAS NOUS ON EST LÀÀÀ ♬",
+        "Macron explosion !"
+      ]
+    },
+    "darmanin": {
+      "responses": [
+        "Le sale violeur ?",
+        "L'abject Darmanin"
+      ]
+    },
+    "valls": {
+      "responses": [
+        "Qui ?"
+      ]
+    },
+    "blanquer": {
+      "responses": [
+        "Le Beluga blanc ?"
+      ]
+    },
+    "roussel": {
+      "responses": [
+        "🥩 🥓 🍖 🍷"
+      ]
+    },
+    "mediapart": {
+      "responses": [
+        "Edwy moustache",
+        "Abonnez vous !"
+      ]
+    },
+    "gibouin": {
+      "responses": [
+        "TA GUEUUULE CONNNAAAAARD",
+        "Elle a son attestation madame Gibouin ?",
+        "♬ Bon ben ça fera 135 euros ♬"
+      ]
+    },
+    "ciotti": {
+      "responses": [
+        "Le chauve là ?"
+      ]
+    },
+    "zemmour": {
+      "responses": [
+        "ZEMMOUR FACHO"
+      ]
+    },
+    "sarouel": {
+      "responses": [
+        "p'tit terr pour fêter ça ?",
+        "Bubuchenboiiiis"
+      ]
+    },
+    "coupable": {
+      "responses": [
+        "sauf Carlos Ghosn !"
+      ]
+    },
+    "jambon": {
+      "responses": [
+        "Des choses concrètes"
+      ]
+    },
+    "fromage": {
+      "responses": [
+        "Des choses concrètes"
+      ]
+    }
+
+
+
+
+  }
+
+
+}
