@@ -19,13 +19,14 @@ COMMAND_FILE="commands.json"
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-print("Running client...")
+print("Running client with token", TOKEN)
 client.run(TOKEN)
 print("Done")
 
 
 @client.event
 async def on_ready():
+    print("Client ready")
     for guild in client.guilds:
         if guild.name == GUILD:
                 break
