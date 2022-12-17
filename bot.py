@@ -47,14 +47,14 @@ def find_and_run_command(input_str):
             print("single !")
             for command in json_data[name]:
                 if command == input_str:
-                    run_command(json_data[name][command])
+                    return run_command(json_data[name][command])
         if name == "match":
             print("match !")
             for command in json_data[name]:
                 if findWholeWord(command)(input_str) != None:
-                    run_command(json_data[name][command])
+                    return run_command(json_data[name][command])
 
-
+    return None
 
 
 
