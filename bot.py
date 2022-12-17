@@ -19,7 +19,7 @@ intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
 print("Running client with token", TOKEN)
-client.run(TOKEN)
+client.run(TOKEN, reconnect=True)
 print("Done")
 
 COMMAND_FILE="commands.json"
