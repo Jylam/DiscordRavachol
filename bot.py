@@ -12,7 +12,7 @@ import urllib.request
 import re
 import random
 
-data = None
+json_data = None
 GUILD = 'Ostinautoscope'
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
 COMMAND_FILE="commands.json"
@@ -32,7 +32,7 @@ async def on_ready():
                 break
     try:
         with open(COMMAND_FILE, 'r') as f:
-            data = json.load(f)
+            json_data = json.load(f)
             print("Loaded json")
     except:
         print("Can't open", COMMAND_FILE, ". Exiting.")
@@ -74,15 +74,15 @@ def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
 
 def find_and_run_command(input_str):
-    for name in data:
+    for name in json_data:
         if name == "single":
-            for command in data[name]:
+            for command in json_data[name]:
                 if command == input_str:
-                    run_command(data[name][command])
+                    run_command(json_data[name][command])
         if name == "match":
-            for command in data[name]:
+            for command in json_data[name]:
                 if findWholeWord(command)(input_str) != None:
-                    run_command(data[name][command])
+                    run_command(json_data[name][command])
 
 
 
