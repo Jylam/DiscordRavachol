@@ -26,33 +26,6 @@ COMMAND_FILE="commands.json"
 json_data = None
 
 
-@client.event
-async def on_ready():
-    print("Client ready")
-    for guild in client.guilds:
-        if guild.name == GUILD:
-                break
-    try:
-        with open(COMMAND_FILE, 'r') as f:
-            json_data = json.load(f)
-            print("Loaded json")
-    except:
-        print("Can't open", COMMAND_FILE, ". Exiting.")
-        sys.exit(1)
-
-    print("Ready.")
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    print("Message from", message.author,":", message.content)
-    resp = find_and_run_command(message.content)
-    if resp != None:
-        await message.channel.send(resp)
-
-
 
 def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
@@ -86,5 +59,34 @@ def find_and_run_command(input_str):
                 if findWholeWord(command)(input_str) != None:
                     run_command(json_data[name][command])
 
+
+
+
+
+@client.event
+async def on_ready():
+    print("Client ready")
+    for guild in client.guilds:
+        if guild.name == GUILD:
+                break
+    try:
+        with open(COMMAND_FILE, 'r') as f:
+            json_data = json.load(f)
+            print("Loaded json")
+    except:
+        print("Can't open", COMMAND_FILE, ". Exiting.")
+        sys.exit(1)
+
+    print("Ready.")
+
+@client.event
+async def on_message(message):
+    print("Message from", message.author,":", message.content)
+    if message.author == client.user:
+        return
+
+    resp = find_and_run_command(message.content)
+    if resp != None:
+        await message.channel.send(resp)
 
 
