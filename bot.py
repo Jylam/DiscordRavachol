@@ -44,12 +44,10 @@ def findWholeWord(w):
 def find_and_run_command(input_str):
     for name in json_data:
         if name == "single":
-            print("single !")
             for command in json_data[name]:
                 if command == input_str:
                     return run_command(json_data[name][command])
         if name == "match":
-            print("match !")
             for command in json_data[name]:
                 if findWholeWord(command)(input_str) != None:
                     return run_command(json_data[name][command])
