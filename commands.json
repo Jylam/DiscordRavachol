@@ -97,7 +97,14 @@
       "responses": [
         "lequel de NPA ?"
       ]
+    },
+    "debout": {
+      "random": 3,
+      "responses": [
+        "DEBOOOOOUT LES DAMNÉS DE LA TEEEERREUH"
+      ]
     }
+
 
 
 
