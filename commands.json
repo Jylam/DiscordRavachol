@@ -91,6 +91,12 @@
       "responses": [
         "Des choses concrètes"
       ]
+    },
+    "npa": {
+      "random": 3,
+      "responses": [
+        "lequel de NPA ?"
+      ]
     }
 
 
