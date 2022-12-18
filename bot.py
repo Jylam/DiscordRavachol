@@ -77,12 +77,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print("Message from", message.author,":", message.content)
     if message.author == client.user:
         return
 
     resp = find_and_run_command(message.content)
     if resp != None:
+        print("Message from", message.author,":", message.content)
         await message.channel.send(resp)
 
 
