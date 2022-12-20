@@ -103,10 +103,48 @@
       "responses": [
         "DEBOOOOOUT LES DAMNÉS DE LA TEEEERREUH"
       ]
+    },
+    "pécresse": {
+       "responses": [
+          "DEBOOOOOOOOOOOOOUT",
+          "Vous m'avez manqué !"
+        ]
+    },
+    "chat": {
+      "responses": [
+        "Les chats c'est de gauche",
+        "Les chats c'est de droite"
+      ]
+    },
+    "chien": {
+      "responses": [
+        "Les chiens c'est de gauche",
+        "Les chiens c'est de droite"
+      ]
+    },
+    "gingembre": {
+      "responses": [
+        "Le gingembrisme c'est de gauche",
+        "Le gingembrisme c'est de droite"
+      ]
+    },
+    "pim's": {
+      "responses": [
+        "Les pim's c'est de gauche",
+        "Les pim's c'est de droite"
+      ]
+    },
+    "shrek": {
+      "responses": [
+        "Shrek est clairement de gauche",
+        "Shrek est incontestablement de droite"
+      ]
+    },
+    "ile de france": {
+      "responses": [
+        "Quand le parc floral, se met à chanteeeer, c'est l'Île de Franceuh qui va s'enflammeeeeeer",
+      ]
     }
-
-
-
 
 
   }
