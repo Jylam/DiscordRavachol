@@ -15,6 +15,11 @@
           "Il fait très tiède"
       ]
     }
+        "Le Pen": {
+      "responses": [
+          "https://estcequejeanmarielepenestmort.info/",
+      ]
+    }
   },
   "match": {
     "macron": {
@@ -138,7 +143,7 @@
       "responses": [
         "Shrek est clairement de gauche",
         "Shrek est incontestablement de droite",
-        "Somebody wants told me the world ♪♫"
+        "Somebody once told me the world ♪♫"
       ]  
     },
     "jamy": {
@@ -146,9 +151,14 @@
         "Énorme!"
       ]
           },
+    "Shame": {
+      "responses": [
+        "https://tenor.com/view/shame-go-t-game-of-thrones-walk-of-shame-shameful-gif-4949558"
+      ]
+    },
     "communisme": {
       "responses": [
-        "Ayont une pensée pour les 1000 milliards de morts du communisme"
+        "Ayons une pensée pour les 1000 milliards de morts du communisme"
       ]
     },
     "ile de france": {
