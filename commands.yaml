@@ -1,0 +1,202 @@
+---
+single:
+  pontivy:
+    random: 1
+    responses:
+      - Pontivy meilleure ville
+      - Pontivy rpzt
+  meteo:
+    random: 1
+    responses:
+      - Il fait froid
+      - Il fait chaud
+      - Il fait très tiède
+  mood:
+    random: 3
+    responses:
+      - It probably did
+
+match:
+  macron:
+    random: 3
+    responses:
+      - MACRON DEMISSION !
+      - "♬ ON EST LÀÀÀ ON EST LÀÀÀ MÊME SI MACRON NE VEUT PAS NOUS ON EST LÀÀÀ ♬"
+      - Macron explosion !
+  darmanin:
+    responses:
+      - Le sale violeur ?
+      - L'abject Darmanin
+  valls:
+    responses:
+      - Qui ?
+  blanquer:
+    responses:
+      - Le Beluga blanc ?
+  roussel:
+    responses:
+      - "\U0001F969 \U0001F953 \U0001F356 \U0001F377"
+      - Rends l'argent !
+  mediapart:
+    responses:
+      - Edwy moustache
+      - Abonnez vous !
+  gibouin:
+    responses:
+      - TA GUEUUULE CONNNAAAAARD
+      - Elle a son attestation madame Gibouin ?
+      - ♬ Bon ben ça fera 135 euros ♬
+  ciotti:
+    responses:
+      - Le chauve là ?
+      - Chauve qui peut !
+      - L'oeuf de PACA ?
+  zemmour:
+    responses:
+      - ZEMMOUR FACHO
+      - Quel Zemmour ?
+      - ZEMMOUR GAUCHO
+  sarouel:
+    responses:
+      - p'tit terr pour fêter ça ?
+      - Bubuchenboiiiis
+  coupable:
+    responses:
+      - sauf Carlos Ghosn !
+  jambon:
+    responses:
+      - Des choses concrètes
+  fromage:
+    responses:
+      - Des choses concrètes
+  npa:
+    random: 3
+    responses:
+      - lequel de NPA ?
+  debout:
+    random: 3
+    responses:
+      - DEBOOOOOUT LES DAMNÉS DE LA TEEEERREUH
+  pécresse:
+    responses:
+      - DEBOOOOOOOOOOOOOUT
+      - Vous m'avez manqué !
+  chat:
+    random: 2
+    responses:
+      - Les chats c'est de gauche
+      - Les chats c'est de droite
+  chien:
+    random: 2
+    responses:
+      - Les chiens c'est de gauche
+      - Les chiens c'est de droite
+  gingembre:
+    responses:
+      - Le gingembrisme c'est de gauche
+      - Le gingembrisme c'est de droite
+  pim's:
+    responses:
+      - Les pim's c'est de gauche
+      - Les pim's c'est de droite
+  shrek:
+    responses:
+      - Shrek est clairement de gauche
+      - Shrek est incontestablement de droite
+      - Somebody once told me the world ♪♫
+  jamy:
+    responses:
+      - Énorme!
+  communisme:
+    responses:
+      - Ayont une pensée pour les 1000 milliards de morts du communisme
+  dussopt:
+    responses:
+      - L'aile gauche de la Macronie ?
+      - DUSSPOT ASSASSIN !
+      - Le ballon ?
+  malle:
+    responses:
+      - La malle ? Pas la malle ?
+      - Vous avez vraiment voyagé dans la malle ?
+  harry potter:
+    responses:
+      - Read Another Book!
+  jkr:
+    responses:
+      - Trans Rights!
+      - Nique les transphobes en brochette
+  ile de france:
+    responses:
+      - Quand le parc floral, se met à chanteeeer, c'est l'Île de Franceuh qui va s'enflammeeeeeer
+  friot:
+    responses:
+      - Ça fait 40 ans...
+      - C'est dégueulasse...
+      - J'EN AI RIEN À FOUTRE !
+      - ... c'est du salaiiiiire
+  repost:
+    responses:
+      - https://tenor.com/view/shame-go-t-game-of-thrones-walk-of-shame-shameful-gif-4949558
+  hack:
+    responses:
+      - holy fucking bingle. what?! :3
+      - holy shit, we actually have the nofly list
+      - suck my dick, be gay, do crime, fuck the daily mail
+      - suck my dick, fuck you, be gay, do crime, go feed your conspiracy theorist far right hunger on something else.
+      - i am currently neither dead nor alive but a secret third thing
+      - GAL, I HAVE 9 GIRLFRIENDS, GO TOUCH SOME GRASS
+  quoi:
+    random: 3
+    responses:
+      - feur.
+      - taire.
+      - stitutueur.
+      - zbékistan.
+      - tique.
+      - che lorraine
+  comment:
+    random: 3
+    responses:
+      - feur.
+      - taire.
+      - stitutueur.
+      - zbékistan.
+      - tique.
+      - che lorraine
+  hein:
+    random: 3
+    responses:
+      - feur.
+      - taire.
+      - stitutueur.
+      - zbékistan.
+      - tique.
+      - che lorraine
+  où:
+    random: 3
+    responses:
+      - feur.
+      - taire.
+      - stitutueur.
+      - zbékistan.
+      - tique.
+      - che lorraine
+  quand:
+    random: 3
+    responses:
+      - feur.
+      - taire.
+      - stitutueur.
+      - zbékistan.
+      - tique.
+      - che lorraine
+  qui:
+    random: 3
+    responses:
+      - feur.
+      - taire.
+      - stitutueur.
+      - zbékistan.
+      - tique.
+      - che lorraine
