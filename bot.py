@@ -6,16 +6,16 @@
 import discord
 import os
 import sys
-import json
 import urllib
 import urllib.request
 import re
 import random
+import yaml
 
 GUILD = 'Ostinautoscope'
 TOKEN = os.environ.get('RAVACHOL_TOKEN')
-COMMAND_FILE="commands.json"
-json_data = None
+COMMAND_FILE="commands.yaml"
+data = None
 
 
 
@@ -42,15 +42,15 @@ def findWholeWord(w):
     return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
 
 def find_and_run_command(input_str):
-    for name in json_data:
+    for name in data:
         if name == "single":
-            for command in json_data[name]:
+            for command in data[name]:
                 if command == input_str:
-                    return run_command(json_data[name][command])
+                    return run_command(data[name][command])
         if name == "match":
-            for command in json_data[name]:
+            for command in data[name]:
                 if findWholeWord(command)(input_str) != None:
-                    return run_command(json_data[name][command])
+                    return run_command(data[name][command])
 
     return None
 
@@ -60,15 +60,15 @@ intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
-    global json_data
+    global data
     print("Client ready")
     for guild in client.guilds:
         if guild.name == GUILD:
                 break
     try:
         with open(COMMAND_FILE, 'r') as f:
-            json_data = json.load(f)
-            print("Loaded json")
+            data = yaml.load(f)
+            print("Loaded yaml")
     except:
         print("Can't open", COMMAND_FILE, ". Exiting.")
         sys.exit(1)
